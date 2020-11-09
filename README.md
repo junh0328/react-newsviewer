@@ -13,7 +13,12 @@
    > > 따라서 useEffect 내부에서 async/await를 사용하고 싶다면, 함수 내부에 async 키워드가 붙은 다른 함수를 만들어 사용해 주어야 합니다. (const fetchData = async() => { ...})
 
 3. 카테고리 기능 구현하기
+
    > > 뉴스 카테고리는 총 여섯 개이며, 다음과 같습니다. (business, science, entertainment, sports, health, technology)
    > > 카테고리의 상태는 useState를 따라서 관리합니다. 추가로 category 값을 업데이트하는 onSelect 함수도 만들어 주었습니다. 그리고 나서 category와 onSelect 함수를 Categories 컴포넌트에게 props로 전달합니다. 또한, category 값을 NewsList 컴포넌트에게도 전달해 주어야 합니다.
    > > 현재 category 값이 무엇인지에 따라 요청할 주소가 동적으로 바뀌고 있습니다. category 값이 all이라면 query 값을 공백으로 설정하고, all이 아니라면 "&category=카테고리" 형태의 문자열을 만들도록 했습니다. 그리고 이 쿼리를 요청할 때 주소에 포함시켜 주었습니다.
    > > 추가로 category 값이 바뀔 때마다 뉴스를 새로 불러와야 하기 때문에 useEffect의 의존 배열(두번째 파라미터로 설정하는 배열)에 category를 넣어줘야 합니다.
+
+4. 리액트 라우터 적용하기
+
+   > > 기존에는 카테고리 값을 useState로 관리했는데요. 이번에는 이 값을 리액트 라우터의 URL 파라미터를 사용하여 관리해 보겠습니다.
