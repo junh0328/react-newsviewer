@@ -22,3 +22,41 @@
 4. 리액트 라우터 적용하기
 
    > > 기존에는 카테고리 값을 useState로 관리했는데요. 이번에는 이 값을 리액트 라우터의 URL 파라미터를 사용하여 관리해 보겠습니다.
+
+# 데이터 흐름도
+
+1. index.js
+
+   > > react-router-dom의 기능을 사용하기 위해 BrowserRouter로 App을 감싸주었다.
+
+2. App.js
+
+   > > 뉴스뷰어 어플리케이션은 특정 사이트에서 제공하는 API를 사용하여 뉴스를 카테고리 별로 보여주는 형식을 띕니다.
+   > > NewsPage를 컴포넌트로 URL 파라미터 형식으로 받아 라우팅처리를 합니다.
+
+3. NewsPage.js
+
+   > > Categories.js 와 NewsList.js를 컴포넌트로 가집니다.
+   > > Categories는 안에 6개의 카테고리를 배열로 가지고 있고, 이 값을 어떻게 매핑하느냐에 따라 보여지는 정보가 달라집니다.
+   > > NewsList는 props로 category를 받습니다.
+   > > 이 카테고리는 (사용자에 의해 선택되는) URL 파라미터로 받는 카테고리 이거나, (초깃값에 의해 선택되는) 'all' 카테고리를 변수로 받습니다.
+
+4. Categories.js
+
+   > > 이 파일은 const Categories = [ . . . ] 배열로 하여금 선택되는 카테고리에 맞춰 라우팅처리를 하는 역할을 합니다.
+   > > Route의 to = "/" 기능을 사용하여 선택된 카테고리에 따라 화면에 나타날 정보를 표시합니다.
+
+5. NewsList.js
+
+   > > 이 파일은 axios 모듈을 사용하여 제공되는 API를 비동기 처리하여 받아옵니다.
+   > > articles, loading을 state로 관리합니다.
+   > > useEffect()를 통해 비동기 처리에 대한 상태변화를 감지합니다.
+   > > props로 받은 category의 변화되는 값을 저장하기 위한 query 변수를 갖습니다.
+   > > 이 쿼리 변수를 api에 적용하여 categories 별 데이터를 전달 받을 수 있습니다.
+   > > 이렇게 전달 받은 response의 해당 articles를 setArticles를 통해 articles애 저장합니다. (useState())
+   > > 후에 모든 과정이 유효하다면, 이 articles를 매핑하여 NewsItem 컴포넌트를 통해 화면에 보여줍니다.
+
+6. NewsItem.js
+
+   > > NewsList가 실질적으로 보여주고자 하는 정보들이 담겨있습니다.
+   > > article을 props로 받아와 사용하게 되는데, 초기에 api값을 받아올 때 있었던 속성들을 지정하여 사용합니다. (title, description, url, urlToImage)

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import NewsItem from './NewsItem';
 
+
 const NewsListBlock = styled.div`
   box-sizing: border-box;
   padding-bottom: 3rem;
