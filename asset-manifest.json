@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/react-newsviewer/static/js/main.ae6a1007.chunk.js",
-    "main.js.map": "/react-newsviewer/static/js/main.ae6a1007.chunk.js.map",
+    "main.js": "/react-newsviewer/static/js/main.f501d6b2.chunk.js",
+    "main.js.map": "/react-newsviewer/static/js/main.f501d6b2.chunk.js.map",
     "runtime-main.js": "/react-newsviewer/static/js/runtime-main.ce0c41d3.js",
     "runtime-main.js.map": "/react-newsviewer/static/js/runtime-main.ce0c41d3.js.map",
     "static/js/2.21264175.chunk.js": "/react-newsviewer/static/js/2.21264175.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.ce0c41d3.js",
     "static/js/2.21264175.chunk.js",
-    "static/js/main.ae6a1007.chunk.js"
+    "static/js/main.f501d6b2.chunk.js"
   ]
 }
