@@ -4,7 +4,7 @@ export default function usePromise(promiseCreator, deps) {
   // 대기 중 /완료/실패에 대한 상태 관리
 
   const [loading, setLoading] = useState(false);
-  const [resolved, setResolved] = useState(null);
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function usePromise(promiseCreator, deps) {
       setLoading(true);
       try {
         const resolved = await promiseCreator();
-        setResolved(resolved);
+        setResponse(resolved);
       } catch (e) {
         setError(e);
       }
@@ -22,5 +22,5 @@ export default function usePromise(promiseCreator, deps) {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
-  return [loading, resolved, error];
+  return [loading, response, error];
 }
